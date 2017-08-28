@@ -72,7 +72,7 @@ void blitSprite(uint16_t* frameBuffer, uint8_t* sprite, int _posX, int _posY)
 			uint16_t g = ((spriteGreen >> 2) & 0x3F) << 5; // 63 -> (2^6)-1
 			uint16_t r = ((spriteRed >> 3) & 0x1F) << 11; // 31 -> (2^5)-1
 
-			//Alpha Blending
+			//Alpha Blending (Should I avoid alpha blending when a >= 255? YEP)
 			r = (alpha * (r - frameRed) + frameRed);
 			g = (alpha * (g - frameGreen) + frameGreen);
 			b = (alpha * (b - frameBlue) + frameBlue);
